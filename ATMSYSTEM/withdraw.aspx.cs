@@ -36,9 +36,6 @@ namespace ATMSYSTEM
         {
             try
             {
-               
-
-
                 SqlDataSource1.UpdateParameters["CardNO"].DefaultValue = Session["CardNo"].ToString();
                 SqlDataSource1.UpdateParameters["withdraw"].DefaultValue = TextBox1.Text;
                 SqlDataSource1.Update();

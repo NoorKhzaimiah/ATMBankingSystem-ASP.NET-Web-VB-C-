@@ -27,10 +27,10 @@ namespace ATMSYSTEM
 
 
  
-                SqlDataSource1.UpdateParameters["CardNO"].DefaultValue = Session["CardNo"].ToString();
+                SqlDataSource4.UpdateParameters["CardNO"].DefaultValue = Session["CardNo"].ToString();
 
-                SqlDataSource1.UpdateParameters["deposit"].DefaultValue = TextBox1.Text;
-                SqlDataSource1.Update();
+                SqlDataSource4.UpdateParameters["deposit"].DefaultValue = TextBox1.Text;
+                SqlDataSource4.Update();
                 SqlDataSource2.InsertParameters["deposit"].DefaultValue = "True";
                 SqlDataSource2.InsertParameters["withdrow"].DefaultValue = "False";          
                 SqlDataSource2.InsertParameters["Ammount"].DefaultValue = TextBox1.Text;
@@ -55,6 +55,11 @@ namespace ATMSYSTEM
         }
 
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
+
+        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
 
         }

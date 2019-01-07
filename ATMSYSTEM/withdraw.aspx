@@ -112,7 +112,7 @@
                      <br />
                      <asp:Button ID="Button2" runat="server" CssClass="auto-style9" Height="46px" OnClick="Button2_Click" Text="UpdateBalance" Width="217px" />
                      <br />
-                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Account]" DeleteCommand="DELETE FROM [Account] WHERE [CardNo] = @CardNo" InsertCommand="INSERT INTO [Account] ([CardNo], [BankID], [BranchID], [Name], [Address], [Balance], [Password]) VALUES (@CardNo, @BankID, @BranchID, @Name, @Address, @Balance, @Password)" UpdateCommand="UPDATE [Account] SET [Balance] = Balance - @withdraw WHERE [CardNo] = @CardNo">
+                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Account] WHERE ([CardNo] = @CardNo)" DeleteCommand="DELETE FROM [Account] WHERE [CardNo] = @CardNo" InsertCommand="INSERT INTO [Account] ([CardNo], [BankID], [BranchID], [Name], [Address], [Balance], [Password]) VALUES (@CardNo, @BankID, @BranchID, @Name, @Address, @Balance, @Password)"  UpdateCommand="UPDATE [Account] SET [Balance] = Balance - @withdraw WHERE [CardNo] = @CardNo" >
                          <DeleteParameters>
                              <asp:Parameter Name="CardNo" Type="Int32" />
                          </DeleteParameters>
@@ -125,17 +125,17 @@
                              <asp:Parameter Name="Balance" Type="String" />
                              <asp:Parameter Name="Password" Type="String" />
                          </InsertParameters>
+                         <SelectParameters>
+                             <asp:SessionParameter Name="CardNo" SessionField="CardNo" Type="Int32" />
+                         </SelectParameters>
                          <UpdateParameters>
-                       
-                             <asp:Parameter Name="withdraw" Type="Int32" />
-        
+                          <asp:Parameter Name="withdraw" Type="Int32" />
                              <asp:Parameter Name="CardNo" Type="Int32" />
                          </UpdateParameters>
                      </asp:SqlDataSource>
-                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [status] WHERE [withdrow] = @withdrow AND [deposit] = @deposit" InsertCommand="INSERT INTO [status] ([withdrow], [deposit], [Ammount], [date], [CardNo], [BranchID]) VALUES (@withdrow, @deposit, @Ammount, @date, @CardNo, @BranchID)" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT * FROM [status] WHERE ([CardNo] = @CardNo)" UpdateCommand="UPDATE [status] SET [Ammount] = @Ammount, [date] = @date, [CardNo] = @CardNo, [BranchID] = @BranchID WHERE [withdrow] = @withdrow AND [deposit] = @deposit">
+                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [status] WHERE [date] = @date" InsertCommand="INSERT INTO [status] ([withdrow], [deposit], [Ammount], [date], [CardNo], [BranchID]) VALUES (@withdrow, @deposit, @Ammount, @date, @CardNo, @BranchID)" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT * FROM [status] WHERE (([BranchID] = @BranchID) AND ([CardNo] = @CardNo))" UpdateCommand="UPDATE [status] SET [withdrow] = @withdrow, [deposit] = @deposit, [Ammount] = @Ammount, [CardNo] = @CardNo, [BranchID] = @BranchID WHERE [date] = @date">
                          <DeleteParameters>
-                             <asp:Parameter Name="withdrow" Type="String" />
-                             <asp:Parameter Name="deposit" Type="String" />
+                             <asp:Parameter Name="date" Type="String" />
                          </DeleteParameters>
                          <InsertParameters>
                              <asp:Parameter Name="withdrow" Type="String" />
@@ -146,15 +146,16 @@
                              <asp:Parameter Name="BranchID" Type="String" />
                          </InsertParameters>
                          <SelectParameters>
+                             <asp:ControlParameter ControlID="DropDownList1" Name="BranchID" PropertyName="SelectedValue" Type="String" />
                              <asp:SessionParameter Name="CardNo" SessionField="CardNo" Type="String" />
                          </SelectParameters>
                          <UpdateParameters>
-                             <asp:Parameter Name="Ammount" Type="String" />
-                             <asp:Parameter Name="date" Type="String" />
-                             <asp:Parameter Name="CardNo" Type="String" />
-                             <asp:Parameter Name="BranchID" Type="String" />
                              <asp:Parameter Name="withdrow" Type="String" />
                              <asp:Parameter Name="deposit" Type="String" />
+                             <asp:Parameter Name="Ammount" Type="String" />
+                             <asp:Parameter Name="CardNo" Type="String" />
+                             <asp:Parameter Name="BranchID" Type="String" />
+                             <asp:Parameter Name="date" Type="String" />
                          </UpdateParameters>
                      </asp:SqlDataSource>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Branch]"></asp:SqlDataSource>
