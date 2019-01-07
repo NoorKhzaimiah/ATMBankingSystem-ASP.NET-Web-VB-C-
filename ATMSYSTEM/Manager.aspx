@@ -55,13 +55,14 @@
             height: 300px;
         }
         .auto-style18 {
-            color: #993333;
+            color: #FFFFFF;
+            background-color: #800000;
         }
         .auto-style19 {
             color: #FFFFFF;
             font-weight: bold;
             font-size: x-large;
-            background-color: #990033;
+            background-color: #800000;
         }
         </style>
 </head>
@@ -98,7 +99,7 @@
                 <td colspan="3" class="auto-style17">
                     <strong><span class="auto-style18">Enter To see the BRANCHES STATEMENT !!&nbsp;
                     </span>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click" CssClass="auto-style19" Height="45px" Width="188px" />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click" CssClass="auto-style19" Height="54px" Width="251px" />
                     </strong>
                 </td>
             </tr>
