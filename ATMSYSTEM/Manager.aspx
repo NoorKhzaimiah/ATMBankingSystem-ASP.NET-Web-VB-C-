@@ -97,9 +97,10 @@
             </tr>
             <tr style="width:1100px;">
                 <td colspan="3" class="auto-style17">
-                    <strong><span class="auto-style18">Enter To see the BRANCHES STATEMENT !!&nbsp;
-                    </span>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click" CssClass="auto-style19" Height="54px" Width="251px" />
+                    <strong><span class="auto-style18">Enter To see the BRANCHES STATEMENT !!&nbsp;<br />
+                    <br />
+                    <br />
+&nbsp;</span><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click" CssClass="auto-style19" Height="53px" Width="141px" />
                     </strong>
                 </td>
             </tr>
